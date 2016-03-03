@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "browse",
+  "description": "Automtically facebook pictures from an album.",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+  "content_scripts": [ {
+    "css": ["facebook/css/style.css"],
+    "js": [ 
+		"facebook/js/jquery.js",
+      "facebook/js/lib.js" ],
+    "matches": [
+      	"http://facebook.com/*",
+		"https://www.facebook.com/*"
+      ]
+
+  }],
+  "background": {
+    "scripts": ["main.js"]
+  },
+  "web_accessible_resources": ["facebook/favicon.ico"]
+}
