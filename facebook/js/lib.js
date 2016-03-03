@@ -13,7 +13,7 @@ function browse(){
 
 function	setBrowseButton(){
 	
-	var playButton = "<span><a><button class='browseButton'>BROWSE</button></a></span>";
+	var playButton = "<span><a class='browseButton'>PLAY</a></span>";
 	$( "._42nr" ).append(playButton);
 
 }
