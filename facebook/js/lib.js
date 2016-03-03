@@ -35,8 +35,19 @@ function browseListen(){
 	});
 	
 	$(".stage").on( 'click', function(){
+		
+		document.location.reload();
 		port.postMessage("Stop browsing");
+		
 	});
+	
+	$("._418x").on( 'click', function(){
+
+		port.postMessage("Stop browsing");
+		
+	});
+	
+	//Should find a way to send "stop browsing" also when pushing exit or on the blurred container
 	
 }
 
