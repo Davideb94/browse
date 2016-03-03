@@ -22,8 +22,14 @@ function browseListen(){
 
 	$( ".browseButton" ).on( 'click', function(){
 	
-		chrome.extension.sendRequest({ msg: "browse it!!!" });
-		next(); //Actually the main.js should call this function... from the sendRequest
+		var port = chrome.extension.connect({name: "bridge"});
+		port.postMessage("Request!");
+		port.onMessage.addListener(function(msg) {
+			
+			console.log("message recieved: "+ msg);
+			next();
+			
+		});
 		
 	});
 	

@@ -1,15 +1,16 @@
-chrome.extension.onRequest.addListener(
-    function(request, sender, sendResponse){
-		
-		var milliseconds = 3000;
-		setInterval(sendRequest, milliseconds);
-		
-    }
-);
+chrome.extension.onConnect.addListener(function(port) {
 	
-function sendRequest(){
+	console.log("Connected .....");
+	port.onMessage.addListener(function(msg) {
+		
+		console.log("message recieved: "+ msg);
+		var milliseconds = 3000;
+		setInterval(function sendRequest(){
 
-	console.log('Hey, sendRequest is working!');
-	//should call next() from lib.js
+			port.postMessage("Browse it like there's no tomorrow!!!");
 
-}
+		}, milliseconds);
+		
+	});
+	
+});
