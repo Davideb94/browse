@@ -19,11 +19,12 @@ function	setBrowseButton(){
 }
 
 function browseListen(){
+	
+	var port = chrome.extension.connect({name: "bridge"});
 
 	$( ".browseButton" ).on( 'click', function(){
 	
-		var port = chrome.extension.connect({name: "bridge"});
-		port.postMessage("Request!");
+		port.postMessage("Start browsing");
 		port.onMessage.addListener(function(msg) {
 			
 			console.log("message recieved: "+ msg);
@@ -31,6 +32,10 @@ function browseListen(){
 			
 		});
 		
+	});
+	
+	$(".stage").on( 'click', function(){
+		port.postMessage("Stop browsing");
 	});
 	
 }
