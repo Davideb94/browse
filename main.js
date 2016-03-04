@@ -1,6 +1,6 @@
 chrome.extension.onConnect.addListener(function(port) {
 	
-	var milliseconds = 3000;
+	var milliseconds = 5000;
 	var interval = 'init';
 	console.log(interval);
 	
